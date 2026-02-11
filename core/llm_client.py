@@ -8,6 +8,10 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 
 from config.settings import settings, LLMProvider
 from utils.logger import get_logger
+from google import genai
+
+import os
+
 
 logger = get_logger(__name__)
 
@@ -87,13 +91,14 @@ class LLMClient:
                 return response.content[0].text.strip()
             
             elif self.provider == LLMProvider.GEMINI:
-                full_prompt = f"{system_prompt}\n\n{user_prompt}"
-                response = self.client.generate_content(
-                    full_prompt,
-                    generation_config={
-                        "temperature": temp,
-                        "max_output_tokens": self.max_tokens
-                    }
+                # New GenAI SDK usage
+                response = self.client.models.generate_content(
+                    model=self.model,
+                    contents=user_prompt if system_prompt == "" else f"{system_prompt}\n\n{user_prompt}",
+                    config=genai.types.GenerateContentConfig(
+                        temperature=temp,
+                        max_output_tokens=self.max_tokens,
+                    ),
                 )
                 return response.text.strip()
             
