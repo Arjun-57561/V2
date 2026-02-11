@@ -34,10 +34,11 @@ class LLMClient:
             self.temperature = 0.3
             self.max_tokens = 2000
             
+
         elif self.provider == LLMProvider.GEMINI:
-            import google.generativeai as genai
-            genai.configure(api_key=settings.GOOGLE_API_KEY)
-            self.client = genai.GenerativeModel(settings.GEMINI_MODEL)
+            # Configure Gemini client
+            self.client = genai.Client(api_key=settings.GOOGLE_API_KEY)
+            self.model = settings.GEMINI_MODEL
             self.temperature = 0.3
             self.max_tokens = 2000
         
