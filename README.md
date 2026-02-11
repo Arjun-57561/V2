@@ -1,28 +1,43 @@
-# Uncertainty Agent Council
+# Uncertainty-First Agent Council
 
-A multi-agent system for handling uncertainty in LLM responses through specialized agents.
+An Agentic AI System that Explicitly Models Unknowns for High-Stakes Indian Decision Support
 
-## Architecture
+**Project Team:**
+- Amitkumar Racha (24070126501)
+- Bontha Mallikarjun Reddy (23070126026)
+- Neil Cardoz (23070126079)
 
-The system consists of 7 specialized agents:
-1. Query Processor - Analyzes and structures incoming queries
-2. Fact Boundary - Distinguishes facts from inferences
-3. Assumption Detection - Identifies underlying assumptions
-4. Unknown Detection - Recognizes knowledge gaps
-5. Temporal Uncertainty - Handles time-sensitive information
-6. Confidence Calibration - Assesses response confidence
-7. Decision Guidance - Provides actionable recommendations
+**Mentor:** Dr. Aniket Shahade  
+**Panel Member:** Dr. Sumit Kumar
 
-## Setup
+**Institution:** Symbiosis Institute of Technology, Pune
 
-```bash
-pip install -r requirements.txt
-cp .env.example .env
-# Edit .env with your API keys
-```
+---
 
-## Usage
+## 📌 Problem Statement
 
-```bash
-python main.py
-```
+Modern AI chatbots generate confident-looking answers even when information is incomplete, ambiguous, or outdated. This creates serious risks in high-stakes domains like:
+
+- ✅ Government scheme eligibility
+- ⚖️ Legal pre-screening
+- 💰 Financial compliance
+
+**Core Issue:** Existing systems optimize for fluent answers but hide uncertainty from users.
+
+---
+
+## 🎯 Solution: Uncertainty-First Agent Council
+
+A multi-agent AI system that:
+
+1. **Explicitly identifies** known facts, assumptions, and unknowns
+2. **Calibrates confidence** based on available and missing information
+3. **Reduces hallucinations** in decision-critical queries
+4. **Guides users safely** when information is insufficient
+
+---
+
+## 🏗️ Architecture
+
+### 7-Agent Pipeline
+
